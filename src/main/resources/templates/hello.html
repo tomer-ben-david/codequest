@@ -6,5 +6,25 @@
 </head>
 <body>
     <h1 th:text="${message}">Hello, Thymeleaf!</h1>
+
+    an HTML table:
+
+    <table>
+        <thead>
+        <tr>
+            <th> Id </th>
+            <th> Question </th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:if="${questions.empty}">
+            <td colspan="2"> No Books Available </td>
+        </tr>
+        <tr th:each="question : ${questions}">
+            <td><span th:text="${question.getId()}"> Id </span></td>
+            <td><span th:text="${question.getQuestion()}"> Question </span></td>
+        </tr>
+        </tbody>
+    </table>
 </body>
 </html>
